@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.seu.koo.mapper.AdminMapper">
+  <!-- 查询用户对象,返回Admin对象 -->
+  <select id="queryAdminByAccount" 
+    parameterType="com.seu.koo.po.Admin" 
+    flushCache="true" 
+  	resultType="com.seu.koo.po.Admin">
+    select 
+    	account account,
+    	password password
+    from admin 
+    where account = #{account} AND password=#{password}
+  </select>
+  <!-- 插入用户对象(insert) -->
+  <insert id="insertAdmin" 
+  	parameterType="com.seu.koo.po.Admin"
+  	useGeneratedKeys="false">
+  	insert into admin (account,password) 
+  	values(#{account},#{password})
+  </insert>
+  
+  <!-- 更新用户对象(update) -->
+  <update id="updateAdminByAccount"
+        parameterType="com.seu.koo.po.Admin"
+       flushCache="true">
+  	update admin set password=#{password}
+  	where account=#{account}
+  </update>
+  
+ <!--  删除用户对象(delete) -->
+  <delete id="deleteAdminByAccount"
+        parameterType="int"
+       flushCache="true">
+  	delete from admin where account=#{account}
+  </delete>
+    
+</mapper>

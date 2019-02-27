@@ -1,0 +1,29 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.2.xsd 
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd 
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-4.2.xsd 
+		http://www.springframework.org/schema/aop 
+		http://www.springframework.org/schema/aop/spring-aop-4.2.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-4.2.xsd ">
+<!-- 管理员功能的service -->
+<bean id="AdminService" class="com.seu.koo.service.AdminServiceImpl"/>
+<!-- 职工表操作的service -->
+<bean id="StaffService" class="com.seu.koo.service.StaffServiceImpl"/>
+<!-- 菜品表操作的service -->
+<bean id="DishService" class="com.seu.koo.service.DishServiceImpl"/>
+<!-- 账单表操作的service -->
+<bean id="BillService" class="com.seu.koo.service.BillServiceImpl"/>
+<!-- 后厨系统的service -->
+<bean id="CookService" class="com.seu.koo.service.CookServiceImpl"/>
+<!-- 传菜系统的service -->
+<bean id="DeliverService" class="com.seu.koo.service.DeliverServiceImpl"/>
+<!-- 服务员管理的service -->
+<bean id="WaiterService" class="com.seu.koo.service.WaiterServiceImpl"/>
+</beans>

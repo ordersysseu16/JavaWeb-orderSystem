@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.seu.koo.mapper.WaiterMapper">
+  <!-- 查询用户对象,返回Waiter对象 -->
+  <select id="queryWaiterByAccount" 
+    parameterType="com.seu.koo.po.Waiter" 
+    flushCache="true" 
+  	resultType="com.seu.koo.po.Waiter">
+    select 
+    	account account,
+    	password password,
+    	id id
+    from waiter 
+    where account = #{account} AND password=#{password}
+  </select>
+  <!-- 插入用户对象(insert) -->
+  <insert id="insertWaiter" 
+  	parameterType="com.seu.koo.po.Waiter"
+  	useGeneratedKeys="false">
+  	insert into waiter (account,password) 
+  	values(#{account},#{password})
+  </insert>
+  
+  <!-- 更新用户对象(update) -->
+  <update id="updateWaiterByAccount"
+        parameterType="com.seu.koo.po.Waiter"
+       flushCache="true">
+  	update waiter set password=#{password}
+  	where account=#{account}
+  </update>
+  
+ <!--  删除用户对象(delete) -->
+  <delete id="deleteWaiterByAccount"
+        parameterType="int"
+       flushCache="true">
+  	delete from waiter where account=#{account}
+  </delete>
+    
+</mapper>

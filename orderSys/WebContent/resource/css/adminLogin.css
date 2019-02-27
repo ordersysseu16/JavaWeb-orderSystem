@@ -1,0 +1,109 @@
+body {
+  background-color: #DDDDDD;
+  background-size: cover;
+  background-image: url(../img/background_admin.jpg);
+}
+
+.mainContent {
+  position: relative;
+  height: 400px;
+  width: 802px;
+  margin-top: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #393E46;
+  color: #DDDDDD;
+  box-shadow: 0 0 3px rgba(0,0,0,0.12), 0 3px 3px rgba(0,0,0,0.24);
+}
+
+  .login_picture {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    height: 100%;
+    width: 400px;
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+    .login_picture img.logo {
+      height: auto;
+      width: 100%;
+    }
+
+  .adminLogin {
+    float: right;
+    height: 100%;
+    width: 400px;
+    box-shadow: -10px 0 10px #333333;
+  }
+
+
+    .loginTips {
+      margin-top: 10px;
+      min-height: 20px;
+      width: 100%;
+      text-align: center;
+    }
+
+      span.alert {
+        line-height: 20px;
+        font-size: 20px;
+        color: #3DC7BE;
+      }
+
+    .adminLogin form {
+      height: 370px;
+      width: 100%;
+    }
+
+        .text_input {
+          height: 60px;
+          width: 300px;
+          margin: 60px auto;
+        }
+
+        .text_input label {
+          float: left;
+          width: 80px;
+          margin-top: 15px;
+          line-height: 30px;
+          font-size: 28px;
+          letter-spacing: 4px;
+        }
+
+        .text_input input {
+          width: 186px;
+          height: 36px;
+          font-size: 24px;
+          padding: 10px;
+          border: none;
+          color: #DDDDDD;
+          background-color: inherit;
+          border-bottom: 2px solid #DDDDDD;
+          outline: none;
+        }
+
+      input[type="submit"] {
+        height: 70px;
+        width: 100%;
+        border: none;
+        font-size: 30px;
+        letter-spacing: 6px;
+        color: #DDDDDD;
+        background-color: inherit;
+        box-shadow: 0 -5px 5px -3px #333333;
+        transition: box-shadow 0.25s;
+      }
+
+      input[type="submit"]:hover {
+        box-shadow: 0 -5px 5px -3px #3DC7BE;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:active {
+        box-shadow: 0 -2px 5px -3px #3DC7BE;
+      }

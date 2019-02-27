@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.seu.koo.mapper.DishMapper">
+  <!-- 查询菜品对象,返回Dish对象 -->
+  <select id="queryDishByName" 
+    parameterType="com.seu.koo.po.Dish" 
+    flushCache="true" 
+  	resultType="com.seu.koo.po.Dish">
+    select 
+    	id id,
+    	name name,
+    	price price,
+    	time time,
+    	image image,
+    	type type,
+    	description description
+    from dish 
+    where name like "%"#{name}"%"
+  </select>
+  
+  <!-- 查询菜品对象,返回Dish对象 -->
+  <select id="queryDishById" 
+    parameterType="com.seu.koo.po.Dish" 
+    flushCache="true" 
+  	resultType="com.seu.koo.po.Dish">
+    select 
+    	id id,
+    	name name,
+    	price price,
+    	time time,
+    	image image,
+    	type type,
+    	description description
+    from dish 
+    where id = #{id}
+  </select>
+  
+   <!-- 查询菜品对象,返回List<Dish>对象 -->
+  <select id="queryDishList" 
+    parameterType="com.seu.koo.po.Dish" 
+    flushCache="true" 
+  	resultType="com.seu.koo.po.Dish">
+    select 
+    	id id,
+    	name name,
+    	price price,
+    	time time,
+    	image image,
+    	type type,
+    	description description
+    from dish
+  </select>
+  
+  <!-- 插入菜品对象(insert) -->
+  <insert id="insertDish" 
+  	parameterType="com.seu.koo.po.Dish"
+  	useGeneratedKeys="false">
+  	insert into dish (name,price,time,image,type,description) 
+  	values(#{name},#{price},#{time},#{image},#{type},#{description})
+  </insert>
+  
+  <!-- 更新菜品对象(update) -->
+  <update id="updateDish"
+        parameterType="com.seu.koo.po.Dish"
+       flushCache="true">
+  	update dish set name=#{name},price=#{price},time=#{time},image=#{image},type=#{type},description=#{description}
+  	where id=#{id}
+  </update>
+  
+  <!--  删除菜品对象(delete) -->
+  <delete id="deleteDishById"
+        parameterType="int"
+       flushCache="true">
+  	delete from dish where id=#{id}
+  </delete>
+    
+</mapper>

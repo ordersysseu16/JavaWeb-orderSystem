@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.seu.koo.mapper.StaffMapper">
+  <!-- 查询用户对象,返回Staff对象 -->
+  <select id="queryStaffById" 
+    parameterType="int" 
+    flushCache="true" 
+  	resultType="com.seu.koo.po.Staff">
+    select 
+    	id id,
+    	name name,
+    	cook cook,
+    	permission permission
+    from staff 
+    where id = #{id}
+  </select>
+  <!-- 查询用户对象,返回list<Staff> -->
+  <select id="queryStaffList" 
+    flushCache="true" 
+  	resultType="com.seu.koo.po.Staff">
+    select 
+    	id id,
+    	name name,
+    	cook cook,
+    	permission permission
+    from staff 
+  </select>
+  <!-- 查询用户对象,返回厨师list<Staff> -->
+  <select id="queryCookList" 
+    flushCache="true" 
+  	resultType="com.seu.koo.po.Staff">
+    select 
+    	id id,
+    	name name,
+    	cook cook,
+    	permission permission
+    from staff
+    where cook
+  </select>
+  <!-- 查询用户对象,返回Map -->
+  <select id="queryStaffResultMap" 
+  	parameterType="int" 
+  	flushCache="true"
+  	resultType="java.util.HashMap">
+    select 
+    	id id,
+    	name name,
+    	cook cook,
+    	permission permission
+    from staff 
+    where id = #{id}
+  </select>
+ <!--  查询用户对象,返回List<Map<String,Object>> -->
+  <select id="queryStaffResultListMap" 
+    flushCache="true"
+  	resultType="java.util.HashMap">
+    select 
+		id id,
+    	name name,
+    	cook cook,
+    	permission permission
+    from staff 
+  </select>
+  <!-- 插入用户对象(insert) -->
+  <insert id="insertStaff" 
+  	parameterType="com.seu.koo.po.Staff"
+  	useGeneratedKeys="false">
+  	insert into staff (id,name,cook,permission) 
+  	values(#{id},#{name},#{cook},#{permission})
+  </insert>
+  
+  <!-- 更新用户对象(update) -->
+  <update id="updateStaff"
+        parameterType="com.seu.koo.po.Staff"
+       flushCache="true">
+  	update staff set name=#{name},cook=#{cook},permission=#{permission}
+  	where id=#{id}
+  </update>
+  
+ <!--  删除用户对象(delete) -->
+  <delete id="deleteStaffById"
+        parameterType="int"
+       flushCache="true">
+  	delete from staff where id=#{id}
+  </delete>
+  
+</mapper>
